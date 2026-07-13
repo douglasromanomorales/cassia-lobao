@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+body {
+  background-color: #fefef2;
+  color: #2c2b29;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #647e5b;
+  color: #fefef2;
+}
+
+/* Foco de teclado consistente em todo o site — coral, nunca o azul padrão
+   do navegador. Elementos que já definem focus-visible: próprio (Tailwind)
+   sobrescrevem esta regra, então não há conflito. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #ec5238;
+  outline-offset: 2px;
+}
+
+/* thin, editorial scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fefef2;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #647e5b;
+  border-radius: 999px;
+  border: 3px solid #fefef2;
+}
+
+.container-edge {
+  padding-left: clamp(1.5rem, 5vw, 6rem);
+  padding-right: clamp(1.5rem, 5vw, 6rem);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
